@@ -10,7 +10,7 @@ function Interview() {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await axios.get("https://ai-interview-agent-mj4f.onrender.com/");
+        const res = await axios.get("https://ai-interview-agent-mj4f.onrender.com/interview");
 
         const history = res.data.flatMap((item) => [
           { text: item.question, sender: "user" },
@@ -40,7 +40,7 @@ function Interview() {
     setInput("");
 
     try {
-      const res = await axios.post("https://ai-interview-agent-mj4f.onrender.com/", {
+      const res = await axios.post("https://ai-interview-agent-mj4f.onrender.com/interview", {
         message: input,
       });
 
