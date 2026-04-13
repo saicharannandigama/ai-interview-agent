@@ -6,25 +6,8 @@ function Interview() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  // ✅ Load history
-  useEffect(() => {
-    const fetchHistory = async () => {
-      try {
-        const res = await axios.get("https://ai-interview-agent-mj4f.onrender.com/interview");
+  
 
-        const history = res.data.flatMap((item) => [
-          { text: item.question, sender: "user" },
-          { text: item.answer, sender: "ai" },
-        ]);
-
-        setMessages(history);
-      } catch (err) {
-        console.log("Error loading history");
-      }
-    };
-
-    fetchHistory();
-  }, []);
 
   // ✅ Send message
   const sendMessage = async () => {
@@ -40,7 +23,7 @@ function Interview() {
     setInput("");
 
     try {
-      const res = await axios.post("https://ai-interview-agent-mj4f.onrender.com/interview", {
+      const res = await axios.post("https://ai-interview-agent-mj4f.onrender.com/chat", {
         message: input,
       });
 
