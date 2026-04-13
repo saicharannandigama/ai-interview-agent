@@ -1,0 +1,204 @@
+/* 🌌 Background */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+/* 🧊 Main Container */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 20px;
+
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.05);
+
+  /* 🔥 NEW GLOW EFFECT */
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.2),
+    0 0 40px rgba(0, 255, 255, 0.1);
+
+  transition: 0.3s;
+}
+.container:hover {
+  box-shadow: 
+    0 0 30px rgba(0, 255, 255, 0.4),
+    0 0 60px rgba(0, 255, 255, 0.2);
+}
+
+/* 🤖 Title */
+h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* 💬 Chat Box */
+.chat-box {
+  height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 👤 User Message */
+.user {
+  box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+  align-self: flex-end;
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin: 5px;
+  max-width: 70%;
+  animation: slideIn 0.3s ease;
+}
+
+/* 🤖 AI Message */
+.ai {
+  box-shadow: 0 0 10px rgba(67, 233, 123, 0.5);
+  align-self: flex-start;
+  background: linear-gradient(45deg, #43e97b, #38f9d7);
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin: 5px;
+  max-width: 70%;
+  animation: slideIn 0.3s ease;
+}
+
+/* ✨ Input Area */
+.input-box {
+  display: flex;
+  margin-top: 10px;
+}
+
+/* ⌨️ Input */
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+/* 🚀 Button */
+button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+}
+
+/* ⚡ Animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+canvas {
+  position: fixed;
+  z-index: -1;
+}
+
+.typing {
+  display: flex;
+  align-items: center;
+}
+
+.typing span {
+  height: 8px;
+  width: 8px;
+  background: white;
+  margin: 3px;
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 1s infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.ai-avatar {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle,
+    #00f2fe,
+    #4facfe,
+    transparent
+  );
+
+  box-shadow: 
+    0 0 20px #00f2fe,
+    0 0 40px #4facfe,
+    0 0 80px #00f2fe;
+
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.ai-avatar::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,255,255,0.3);
+
+  animation: rotate 6s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
